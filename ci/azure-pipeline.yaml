@@ -62,6 +62,8 @@ stages:
     vmImage: $(vmImage)
   jobs:
   - job:
+    displayName: Publish
+    steps:
     - task: HelmDeploy@0
       displayName: Helm index
       inputs:
