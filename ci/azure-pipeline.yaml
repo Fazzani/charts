@@ -82,7 +82,6 @@ stages:
     - script: |
         export GITHUB_TOKEN=$(GITHUB_TOKEN)
         cd "$(System.DefaultWorkingDirectory)/charts" && \
-        python --version && \
         pip install wheel && \
         pip install chartpress && \
         chartpress --publish-chart
