@@ -34,11 +34,11 @@ jobs:
       kubernetesServiceEndpoint: $(kubernetesCluster)
 
   - task: HelmDeploy@0
-    displayName: Helm lint 
+    displayName: Helm lint
     inputs:
       command: lint
       chartType: FilePath
-      chartPath: $(System.DefaultWorkingDirectory)/charts
+      chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
       upgradetiller: false
       waitForExecution: false
       connectionType: Kubernetes Service Connection
@@ -51,6 +51,27 @@ jobs:
       arguments: openvpn --dry-run
       chartType: FilePath
       chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm package
+    inputs:
+      command: package
+      chartType: FilePath
+      chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm push
+    inputs:
+      command: repo
+      arguments: index --url https://fazzani.synker.ovh/openvpn/ --merge index.yaml .
       upgradetiller: false
       waitForExecution: false
       connectionType: Kubernetes Service Connection
