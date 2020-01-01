@@ -36,7 +36,7 @@ jobs:
     displayName: Helm lint
     inputs:
       command: lint
-      arguments: $(System.DefaultWorkingDirectory)/charts/openvpn --debug --strict
+      arguments: $(System.DefaultWorkingDirectory)/charts/openvpn --debug # --strict
       upgradetiller: false
       waitForExecution: false
       connectionType: Kubernetes Service Connection
