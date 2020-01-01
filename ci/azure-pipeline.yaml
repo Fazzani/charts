@@ -10,6 +10,7 @@ trigger:
 variables:
   vmImage: 'ubuntu-16.04'
   kubernetesCluster: 'ovh cluster'
+  python_version: '3.7'
 
 stages:
 - stage: Test
@@ -56,14 +57,19 @@ stages:
         kubernetesServiceEndpoint: $(kubernetesCluster)
 
 - stage: Publish
-  condition: and(succeeded('Test'), eq(startsWith(variables['Build.SourceBranch'], 'refs/tags/', true)))
+  condition: and(succeeded(), eq(startsWith(variables['Build.SourceBranch'], 'refs/tags/', true)))
   dependsOn: Test
   pool:
     vmImage: $(vmImage)
   jobs:
+
   - job:
     displayName: Publish
     steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(python.version)'
+
     - task: HelmDeploy@0
       displayName: Helm index
       inputs:
@@ -74,7 +80,7 @@ stages:
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: $(kubernetesCluster)
 
-    - bash: |
+    - script: |
         export GITHUB_TOKEN=$(GITHUB_TOKEN)
         (cd ./charts && pip install chartpress && chartpress --publish-chart)
-      displayName: 'Helm Charts publish'
+      displayName: Helm Charts publish
