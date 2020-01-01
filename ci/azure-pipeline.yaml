@@ -57,7 +57,7 @@ stages:
         kubernetesServiceEndpoint: $(kubernetesCluster)
 
 - stage: Publish
-  condition: and(succeeded(), eq(startsWith(variables['Build.SourceBranch'], 'refs/tags/', true)))
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'],'refs/tags/'))
   dependsOn: Test
   pool:
     vmImage: $(vmImage)
