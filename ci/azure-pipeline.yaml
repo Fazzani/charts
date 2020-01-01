@@ -69,6 +69,11 @@ stages:
       inputs:
         versionSpec: '3.7'
 
+    - task: HelmInstaller@1
+      displayName: Helm installer
+      inputs:
+        helmVersionToInstall: latest
+
     - task: HelmDeploy@0
       displayName: Helm index
       inputs:
