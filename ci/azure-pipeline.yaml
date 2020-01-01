@@ -86,6 +86,8 @@ stages:
 
     - script: |
         export GITHUB_TOKEN=$(GITHUB_TOKEN)
+        git config --global user.email "ci@synker.ovh"
+        git config --global user.name "chartpress"
         cd "$(System.DefaultWorkingDirectory)/charts" && \
         pip install wheel && \
         pip install chartpress && \

@@ -7,17 +7,17 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.webPort }}
+    - port: {{ .Values.web.service.port }}
       targetPort: web
       protocol: TCP
       name: web
     - port: {{ .Values.service.dnsTcpPort }}
-      targetPort: dns_tcp
+      targetPort: dns-tcp
       protocol: TCP
-      name: dns_tcp
+      name: dns-tcp
     - port: {{ .Values.service.dnsUdpPort }}
-      targetPort: dns_udp
+      targetPort: dns-udp
       protocol: UDP
-      name: dns_udp
+      name: dns-udp
   selector:
     {{- include "openvpn.selectorLabels" . | nindent 4 }}

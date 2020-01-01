@@ -2,13 +2,7 @@
 
 [![Build Status](https://dev.azure.com/fazzaniheni/openvpn/_apis/build/status/Fazzani.openvpn?branchName=master)](https://dev.azure.com/fazzaniheni/openvpn/_build/latest?definitionId=4&branchName=master)
 
-
-## ADD Repo
-
-```bash
-helm repo add synker https://fazzani.synker.ovh/openvpn/
-helm repo update
-```
+[Helm Repository](https://fazzani.synker.ovh/openvpn/)
 
 ## docs
 
@@ -17,11 +11,12 @@ helm repo update
 
 ## TODO
 
-- [x] ci/push repo
+- [x] ci/helm repo
   - [x] [chart repo with github pages](helm_repo_github_doc)
   - [x] [chart repo github 2](helm_repo_github_doc2)
 - [ ] cluster configuration
 - [ ] bridge and routed configuration
+- [ ] env variables
 
 ## Spec
 

@@ -30,12 +30,25 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+web:
+  service:
+    type: ClusterIP
+    port: 433
+    #nodePort: 30433
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    hosts:
+      - host: "chart-example.local"
+        paths:
+        - /
+    tls: []
+
 service:
-  # nodeWebPort: 30433
   # nodeDnsTcpPort: 31433
   # nodeDnsUdpPort: 30672
   type: ClusterIP
-  webPort: 433
   dnsTcpPort: 9443
   dnsUdpPort: 1194
 

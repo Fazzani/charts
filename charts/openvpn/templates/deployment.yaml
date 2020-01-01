@@ -29,12 +29,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: web
-              containerPort: {{ .Values.service.webPort }}
+              containerPort: {{ .Values.web.service.port }}
               protocol: TCP
-            - name: dns_tcp
+            - name: dns-tcp
               containerPort: {{ .Values.service.dnsTcpPort }}
               protocol: TCP
-            - name: dns_udp
+            - name: dns-udp
               containerPort: {{ .Values.service.dnsUdpPort }}
               protocol: UDP
           livenessProbe:
