@@ -1,0 +1,15 @@
+apiVersion: v2
+name: openvpn
+description: A openvpn Helm chart for Kubernetes
+type: application
+version: 0.0.1-001.1fbb687
+appVersion: 2.7.5
+keywords:
+  - openvpn
+  - vpn
+sources:
+  - https://github.com/Fazzani/openvpn
+maintainers: # (optional)
+  - name: Fazzani
+    email: heni.fazzani@gmail.com
+icon: https://images-eu.ssl-images-amazon.com/images/I/41CRKpBzyBL.png

@@ -1,0 +1,57 @@
+  
+trigger:
+  branches:
+    include:
+    - master
+    - refs/tags/*
+  paths:
+    exclude:
+    - '*.md'
+
+variables:
+  vmImage: 'ubuntu-16.04'
+  kubernetesCluster: 'ovh cluster'
+
+
+jobs:
+- job: lint
+  displayName: Helm chart lint
+  pool:
+    vmImage: $(vmImage)
+  steps:
+  - task: HelmInstaller@1
+    displayName: Helm installer
+    inputs:
+      helmVersionToInstall: latest
+
+  - task: HelmDeploy@0
+    displayName: Helm init
+    inputs:
+      command: init
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm lint 
+    inputs:
+      command: lint
+      chartType: FilePath
+      chartPath: $(System.DefaultWorkingDirectory)/charts
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm install dry-run
+    inputs:
+      command: install
+      arguments: openvpn --dry-run
+      chartType: FilePath
+      chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)

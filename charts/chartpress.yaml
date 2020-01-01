@@ -1,0 +1,5 @@
+charts:
+  - name: openvpn
+    repo:
+      git: fazzani/openvpn
+      published: http://fazzani.synker.ovh/openvpn/
