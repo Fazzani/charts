@@ -61,17 +61,18 @@ stages:
   pool:
     vmImage: $(vmImage)
   jobs:
-  - task: HelmDeploy@0
-    displayName: Helm index
-    inputs:
-      command: repo
-      arguments: index --url https://fazzani.synker.ovh/openvpn/ --merge index.yaml .
-      upgradetiller: false
-      waitForExecution: false
-      connectionType: Kubernetes Service Connection
-      kubernetesServiceEndpoint: $(kubernetesCluster)
+  - job:
+    - task: HelmDeploy@0
+      displayName: Helm index
+      inputs:
+        command: repo
+        arguments: index --url https://fazzani.synker.ovh/openvpn/ --merge index.yaml .
+        upgradetiller: false
+        waitForExecution: false
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: $(kubernetesCluster)
 
-  - bash: |
-      export GITHUB_TOKEN=$(GITHUB_TOKEN)
-      (cd ./charts && pip install chartpress && chartpress --publish-chart)
-    displayName: 'Helm Charts publish'
+    - bash: |
+        export GITHUB_TOKEN=$(GITHUB_TOKEN)
+        (cd ./charts && pip install chartpress && chartpress --publish-chart)
+      displayName: 'Helm Charts publish'
