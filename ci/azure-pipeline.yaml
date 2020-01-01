@@ -55,17 +55,6 @@ jobs:
       kubernetesServiceEndpoint: $(kubernetesCluster)
 
   - task: HelmDeploy@0
-    displayName: Helm package
-    inputs:
-      command: package
-      chartType: FilePath
-      chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
-      upgradetiller: false
-      waitForExecution: false
-      connectionType: Kubernetes Service Connection
-      kubernetesServiceEndpoint: $(kubernetesCluster)
-
-  - task: HelmDeploy@0
     displayName: Helm index
     inputs:
       command: repo
