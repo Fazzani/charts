@@ -1,4 +1,3 @@
-  
 trigger:
   branches:
     include:
@@ -34,11 +33,10 @@ jobs:
       kubernetesServiceEndpoint: $(kubernetesCluster)
 
   - task: HelmDeploy@0
-    displayName: Helm lint 
+    displayName: Helm lint
     inputs:
       command: lint
-      chartType: FilePath
-      chartPath: $(System.DefaultWorkingDirectory)/charts
+      arguments: $(System.DefaultWorkingDirectory)/charts/openvpn --debug --strict
       upgradetiller: false
       waitForExecution: false
       connectionType: Kubernetes Service Connection
@@ -55,3 +53,29 @@ jobs:
       waitForExecution: false
       connectionType: Kubernetes Service Connection
       kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm package
+    inputs:
+      command: package
+      chartType: FilePath
+      chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - task: HelmDeploy@0
+    displayName: Helm index
+    inputs:
+      command: repo
+      arguments: index --url https://fazzani.synker.ovh/openvpn/ --merge index.yaml .
+      upgradetiller: false
+      waitForExecution: false
+      connectionType: Kubernetes Service Connection
+      kubernetesServiceEndpoint: $(kubernetesCluster)
+
+  - bash: |
+      export GITHUB_TOKEN=$(GITHUB_TOKEN)
+      (cd ./charts && pip install chartpress && chartpress --publish-chart)
+    displayName: 'Helm Charts publish'
