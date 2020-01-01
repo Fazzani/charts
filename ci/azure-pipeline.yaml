@@ -10,7 +10,6 @@ trigger:
 variables:
   vmImage: 'ubuntu-16.04'
   kubernetesCluster: 'ovh cluster'
-  python_version: '3.7.5'
 
 stages:
 - stage: Test
@@ -66,9 +65,6 @@ stages:
   - job:
     displayName: Publish
     steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '$(python.version)'
 
     - task: HelmDeploy@0
       displayName: Helm index
