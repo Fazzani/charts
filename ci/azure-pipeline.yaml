@@ -61,13 +61,13 @@ stages:
   pool:
     vmImage: $(vmImage)
   jobs:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-
   - job:
     displayName: Publish
     steps:
+
+    - task: UsePythonVersion@0
+      inputs:
+      versionSpec: '3.7'
 
     - task: HelmDeploy@0
       displayName: Helm index
