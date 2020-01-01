@@ -10,7 +10,7 @@ trigger:
 variables:
   vmImage: 'ubuntu-16.04'
   kubernetesCluster: 'ovh cluster'
-  python_version: '3.7'
+  python_version: '3.7.5'
 
 stages:
 - stage: Test
