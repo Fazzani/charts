@@ -4,4 +4,4 @@
 
 git add . && git commit -m "bump version $1" && \
 git tag -fa "$1" -m "Version $2" && \
-git push master --tags
+git push origin master --tags
