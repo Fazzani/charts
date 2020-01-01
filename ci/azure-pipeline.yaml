@@ -79,7 +79,9 @@ stages:
     - script: |
         export GITHUB_TOKEN=$(GITHUB_TOKEN)
         cd ./charts && \
+        python --version && \
         pip install wheel && \
         pip install chartpress && \
-        chartpress --publish-chart
+        chartpress --publish-chart \
+        cd ..
       displayName: Helm Charts publish
