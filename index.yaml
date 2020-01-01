@@ -18,7 +18,7 @@ entries:
     - https://github.com/Fazzani/openvpn
     type: application
     urls:
-    - http://$PAT@fazzani.synker.ovh/openvpn/openvpn-0.1.3.tgz
+    - http://fazzani.synker.ovh/openvpn/openvpn-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v2
     appVersion: 2.7.5
@@ -56,6 +56,6 @@ entries:
     - https://github.com/Fazzani/openvpn
     type: application
     urls:
-    - http://$PAT@fazzani.synker.ovh/openvpn/openvpn-0.1.1-001.3a976b0.tgz
+    - http://fazzani.synker.ovh/openvpn/openvpn-0.1.1-001.3a976b0.tgz
     version: 0.1.1-001.3a976b0
 generated: "2020-01-01T19:50:02.080181+01:00"
