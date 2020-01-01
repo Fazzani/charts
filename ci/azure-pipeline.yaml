@@ -67,7 +67,7 @@ stages:
 
     - task: UsePythonVersion@0
       inputs:
-      versionSpec: '3.7'
+        versionSpec: '3.7'
 
     - task: HelmDeploy@0
       displayName: Helm index
