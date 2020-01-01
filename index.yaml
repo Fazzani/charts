@@ -20,4 +20,23 @@ entries:
     urls:
     - https://fazzani.synker.ovh/openvpn/openvpn-0.0.1.tgz
     version: 0.0.1
-generated: "2020-01-01T18:38:23.156507+01:00"
+  - apiVersion: v2
+    appVersion: 2.7.5
+    created: "2020-01-01T19:29:33.533253+01:00"
+    description: A openvpn Helm chart for Kubernetes
+    digest: a6b73b265895c46b2763d348b7a6aab6d38b898c9cee99d7e36cbacf9efe93ab
+    icon: https://images-eu.ssl-images-amazon.com/images/I/41CRKpBzyBL.png
+    keywords:
+    - openvpn
+    - vpn
+    maintainers:
+    - email: heni.fazzani@gmail.com
+      name: Fazzani
+    name: openvpn
+    sources:
+    - https://github.com/Fazzani/openvpn
+    type: application
+    urls:
+    - http://$PAT@fazzani.synker.ovh/openvpn/openvpn-0.1.1-001.3a976b0.tgz
+    version: 0.1.1-001.3a976b0
+generated: "2020-01-01T19:29:33.529892+01:00"
