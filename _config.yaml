@@ -1,0 +1,11 @@
+# _config.yaml
+title: Synker Helm chart repo
+description: A chart repo for storing charts.
+theme: minima
+url: "https://fazzani.synker.ovh/openvpn/"
+repo_name: helm-repo
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore

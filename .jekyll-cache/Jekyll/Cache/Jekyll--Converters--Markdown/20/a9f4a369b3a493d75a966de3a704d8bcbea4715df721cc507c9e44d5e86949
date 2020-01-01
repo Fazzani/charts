@@ -1,0 +1,48 @@
+I"D<h2 id="getting-started">Getting Started</h2>
+
+<p>A chart repo for storing charts.</p>
+
+<p>You can add this repository to your local helm configuration as follows :</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>helm repo add helm-repo http://localhost:4000
+<span class="gp">$</span><span class="w"> </span>helm repo update
+</code></pre></div></div>
+
+<h2 id="charts">Charts</h2>
+
+<h3>
+  
+  <img src="https://images-eu.ssl-images-amazon.com/images/I/41CRKpBzyBL.png" style="height:1.2em;vertical-align: text-top;" />
+  
+  Openvpn
+</h3>
+
+<p><a href="">Home</a> | <a href="https://github.com/Fazzani/openvpn">Source</a></p>
+
+<p>A openvpn Helm chart for Kubernetes</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>helm <span class="nb">install </span>helm-repo/openvpn <span class="nt">--name</span> myrelease <span class="nt">--version</span> 0.1.5
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chart Version</th>
+      <th>App Version</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://fazzani.synker.ovh/openvpn/openvpn-0.1.5.tgz">openvpn-0.1.5</a></td>
+      <td>2.7.5</td>
+      <td>Wed, 01 Jan 2020 21:31:10 +0100</td>
+    </tr>
+    <tr>
+      <td><a href="https://fazzani.synker.ovh/openvpn/openvpn-0.0.1.tgz">openvpn-0.0.1</a></td>
+      <td>2.7.5</td>
+      <td>Wed, 01 Jan 2020 18:38:23 +0100</td>
+    </tr>
+  </tbody>
+</table>
+:ET
