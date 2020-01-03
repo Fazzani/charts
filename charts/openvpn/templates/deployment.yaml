@@ -27,26 +27,53 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
           ports:
             - name: web
-              containerPort: {{ .Values.web.service.port }}
+              containerPort: 943
               protocol: TCP
             - name: dns-tcp
-              containerPort: {{ .Values.service.dnsTcpPort }}
+              containerPort: 9443
               protocol: TCP
             - name: dns-udp
-              containerPort: {{ .Values.service.dnsUdpPort }}
+              containerPort: 1194
               protocol: UDP
           livenessProbe:
-            httpGet:
-              path: /
-              port: web
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - netstat -ln | grep -q {{ .Values.web.service.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
           readinessProbe:
-            httpGet:
-              path: /
-              port: web
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - netstat -ln | grep -q {{ .Values.web.service.port }}
+            initialDelaySeconds: 280
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: asconf
+              mountPath: /config/etc/as.conf
+              subPath: asconf
+      volumes:
+      - name: asconf
+        configMap:
+          name: {{ include "openvpn.fullname" . }}-as-configmap
+      - name: config
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim | default (include "openvpn.fullname" .) }}
+      {{- else if not .Values.persistence.enabled }}
+          emptyDir: {}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
