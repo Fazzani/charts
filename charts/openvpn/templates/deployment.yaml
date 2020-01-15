@@ -68,11 +68,11 @@ spec:
         configMap:
           name: {{ include "openvpn.fullname" . }}-as-configmap
       - name: config
-      {{- if .Values.persistence.enabled }}
+      {{- if and .Values.persistence .Values.persistence.enabled }}
         persistentVolumeClaim:
           claimName: {{ .Values.persistence.existingClaim | default (include "openvpn.fullname" .) }}
-      {{- else if not .Values.persistence.enabled }}
-          emptyDir: {}
+      {{- else }}
+        emptyDir: {}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -1,0 +1,42 @@
+entryPoints:
+  traefik:
+    address: ":9000"
+  web:
+    address: ":80"
+    forwardedHeaders:
+      insecure: true
+  websecure:
+    address: ":443"
+    forwardedHeaders:
+      insecure: true
+
+providers:
+  kubernetesCRD: {}
+  kubernetesIngress: {}
+  file:
+    directory: "/config"
+    watch: true
+
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+serversTransport:
+  insecureSkipVerify: true
+  maxIdleConnsPerHost: 42
+
+api:
+  insecure: true
+  dashboard: true
+  debug: true
+
+log:
+  level: {{ .Values.logs.loglevel | quote }}
+  filePath: /tmp/log.log
+  format: json
+
+accessLog:
+  filePath: /tmp/access.log
+  bufferingSize: 100
+
+ping: {}

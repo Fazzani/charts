@@ -1,5 +1,9 @@
 charts:
   - name: openvpn
     repo:
-      git: fazzani/openvpn
+      git: fazzani/charts
       published: http://fazzani.synker.ovh/openvpn/
+  - name: traefik2
+    repo:
+      git: fazzani/charts
+      published: http://fazzani.synker.ovh/traefik2/

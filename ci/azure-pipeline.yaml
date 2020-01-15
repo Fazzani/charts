@@ -34,7 +34,7 @@ stages:
         kubernetesServiceEndpoint: $(kubernetesCluster)
 
     - task: HelmDeploy@0
-      displayName: Helm lint
+      displayName: Helm lint openvpn
       inputs:
         command: lint
         arguments: $(System.DefaultWorkingDirectory)/charts/openvpn --debug # --strict
@@ -44,16 +44,41 @@ stages:
         kubernetesServiceEndpoint: $(kubernetesCluster)
 
     - task: HelmDeploy@0
-      displayName: Helm install dry-run
+      displayName: Helm lint traefik2
       inputs:
-        command: install
-        arguments: openvpn --dry-run
+        command: lint
+        arguments: $(System.DefaultWorkingDirectory)/charts/traefik2 --debug # --strict
+        upgradetiller: false
+        waitForExecution: false
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: $(kubernetesCluster)
+
+    - task: HelmDeploy@0
+      displayName: Helm install openvpn dry-run
+      inputs:
+        command: upgrade
+        arguments: --dry-run
         chartType: FilePath
         chartPath: $(System.DefaultWorkingDirectory)/charts/openvpn
         upgradetiller: false
         waitForExecution: false
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: $(kubernetesCluster)
+        releaseName: openvpn
+
+    ## commented because already CRD existed on my personal cluster (ovh)
+    # - task: HelmDeploy@0
+    #   displayName: Helm install traefik2 dry-run
+    #   inputs:
+    #     command: upgrade
+    #     arguments: --dry-run
+    #     chartType: FilePath
+    #     chartPath: $(System.DefaultWorkingDirectory)/charts/traefik2
+    #     upgradetiller: false
+    #     waitForExecution: false
+    #     connectionType: Kubernetes Service Connection
+    #     kubernetesServiceEndpoint: $(kubernetesCluster)
+    #     releaseName: traefik2
 
 - stage: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'],'refs/tags/'))
@@ -78,7 +103,7 @@ stages:
       displayName: Helm index
       inputs:
         command: repo
-        arguments: index --url https://fazzani.synker.ovh/openvpn/ --merge index.yaml .
+        arguments: index --url https://fazzani.synker.ovh/charts/ --merge index.yaml .
         upgradetiller: false
         waitForExecution: false
         connectionType: Kubernetes Service Connection

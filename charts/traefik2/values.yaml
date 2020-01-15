@@ -1,0 +1,82 @@
+# Default values for Traefik
+image:
+  name: traefik
+  tag: 2.1.2
+
+#
+# Configure the deployment
+#
+deployment:
+  # Number of pods of the deployment
+  replicas: 1
+
+rollingUpdate:
+  maxUnavailable: 1
+  maxSurge: 1
+
+additionalArguments:
+#  - "--providers.kubernetesingress"
+#  - "--providers.kubernetesingress.ingressClass=traefik"
+#  - "--api.insecure=true"
+#  - "--providers.file.directory=/etc/traefik"
+#  - "--providers.file.watch=true"
+#  - "--serversTransport.insecureSkipVerify=true"
+ports:
+  # The name of this one can't be changed as it is used for the readiness and
+  # liveness probes, but you can adjust its config to your liking
+  traefik:
+    port: 9000
+    # Defines whether the port is exposed if service.type is LoadBalancer or
+    # NodePort.
+    #
+    # You SHOULD NOT expose the traefik port on production deployments.
+    # If you want to access it from outside of your cluster,
+    # use `kubectl proxy` or create a secure ingress
+    expose: true
+    # The exposed port for this service
+    exposedPort: 9000
+  web:
+    port: 80
+    expose: true
+    exposedPort: 80
+  websecure:
+    port: 443
+    expose: true
+    exposedPort: 443
+
+# Options for the main traefik service, where the entrypoints traffic comes
+# from.
+service:
+  type: ClusterIP
+  # Additional annotations (e.g. for cloud provider specific config)
+  annotations: {}
+  # Additional entries here will be added to the service spec. Cannot contains
+  # type, selector or ports entries.
+  spec: {}
+    # externalTrafficPolicy: Cluster
+    # loadBalancerIP: "1.2.3.4"
+    # clusterIP: "2.3.4.5"
+
+dashboard:
+  # Enable the dashboard on Traefik
+  enable: true
+
+  # Expose the dashboard and api through an ingress route at /dashboard
+  # and /api This is not secure and SHOULD NOT be enabled on production
+  # deployments
+  ingressRoute: false
+
+logs:
+  loglevel: INFO # WARN default DEBUG
+#
+resources: {}
+  # requests:
+  #   cpu: "100m"
+  #   memory: "50Mi"
+  # limits:
+  #   cpu: "300m"
+  #   memory: "150Mi"
+affinity: {}
+nodeSelector:
+  node-role.kubernetes.io/master: ''
+tolerations: []
