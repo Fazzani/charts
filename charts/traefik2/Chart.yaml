@@ -8,13 +8,9 @@ keywords:
   - ingress
 home: https://traefik.io/
 sources:
-  - https://github.com/containous/traefik
+  - https://github.com/Fazzani/charts/tree/master/charts/traefik2
 maintainers:
-  - name: emilevauge
-    email: emile@vauge.com
-  - name: dtomcej
-    email: daniel.tomcej@gmail.com
-  - name: ldez
-    email: ludovic@containo.us
+  - name: Fazzani
+    email: heni.fazzani@gmail.com
 engine: gotpl
 icon: http://traefik.io/traefik.logo.png

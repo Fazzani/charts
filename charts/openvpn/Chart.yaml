@@ -8,7 +8,7 @@ keywords:
   - openvpn
   - vpn
 sources:
-  - https://github.com/Fazzani/openvpn
+  - https://github.com/Fazzani/charts/tree/master/charts/openvpn
 maintainers:
   - name: Fazzani
     email: heni.fazzani@gmail.com
