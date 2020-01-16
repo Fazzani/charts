@@ -1,5 +1,11 @@
 # OpenVPN Helm chart
 
+## TODO
+
+- [ ] cluster configuration
+- [ ] bridge and routed configuration
+- [ ] env variables
+
 ## envs
 
 ```sh
