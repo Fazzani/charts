@@ -80,7 +80,7 @@ entries:
   traefik:
   - apiVersion: v1
     appVersion: 2.1.2
-    created: "2020-01-16T22:59:43.336529425Z"
+    created: "2020-01-16T23:08:35.841972676Z"
     description: A Traefik based Kubernetes ingress controller
     digest: 432ae5eeb66cef42159ded1c89160a919296c22edf620c561e2bc64a4b2d8c44
     home: https://traefik.io/
@@ -116,4 +116,4 @@ entries:
     urls:
     - https://fazzani.synker.ovh/charts/traefik-0.1.4-n009.hff60587.tgz
     version: 0.1.4-n009.hff60587
-generated: "2020-01-16T23:08:31.352764647Z"
+generated: "2020-01-16T23:08:35.840758377Z"
