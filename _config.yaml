@@ -1,8 +1,8 @@
 # _config.yaml
-title: Synker Helm chart repo
+title: Synker Helm chart repository
 description: A chart repo for storing charts.
-theme: minima
-url: "https://fazzani.synker.ovh/openvpn/"
+theme: jekyll-theme-hacker
+url: "https://fazzani.synker.ovh/charts/"
 repo_name: helm-repo
 
 exclude:
