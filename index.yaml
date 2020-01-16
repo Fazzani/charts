@@ -58,4 +58,28 @@ entries:
     urls:
     - https://fazzani.synker.ovh/openvpn/openvpn-0.0.1.tgz
     version: 0.0.1
-generated: "2020-01-16T22:25:24.887587128Z"
+  traefik:
+  - apiVersion: v1
+    appVersion: 2.1.2
+    created: "2020-01-16T22:25:29.340821558Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 23d2ff4e76fbdf72abb0526c895220e96a8f811129c6a835c512a50bf1db4b4f
+    home: https://traefik.io/
+    icon: http://traefik.io/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    maintainers:
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ludovic@containo.us
+      name: ldez
+    name: traefik
+    sources:
+    - https://github.com/containous/traefik
+    urls:
+    - https://fazzani.synker.ovh/charts/traefik-0.1.6.tgz
+    version: 0.1.6
+generated: "2020-01-16T22:25:29.339726057Z"
