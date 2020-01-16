@@ -83,7 +83,7 @@ stages:
 - stage: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'],'refs/tags/'))
   dependsOn: Test
-  name: '$(Build.SourceBranchName)-$(date:yyyy.M)$(rev:.r)'
+  name: 'Build.SourceBranchName-$(date:yyyy.M)$(rev:.r)'
   pool:
     vmImage: $(vmImage)
   jobs:
