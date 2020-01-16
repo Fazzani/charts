@@ -3,7 +3,7 @@ entries:
   openvpn:
   - apiVersion: v2
     appVersion: 2.7.5-ls18
-    created: "2020-01-16T22:59:38.693677518Z"
+    created: "2020-01-16T23:08:31.353850946Z"
     description: A openvpn Helm chart for Kubernetes
     digest: ec48ca2632db9f9ae7a7a882eb8c914a9a78d7db0ee69e742cdcc2bcb0e5ffc4
     icon: https://images-eu.ssl-images-amazon.com/images/I/41CRKpBzyBL.png
@@ -116,4 +116,4 @@ entries:
     urls:
     - https://fazzani.synker.ovh/charts/traefik-0.1.4-n009.hff60587.tgz
     version: 0.1.4-n009.hff60587
-generated: "2020-01-16T22:59:43.335467426Z"
+generated: "2020-01-16T23:08:31.352764647Z"
