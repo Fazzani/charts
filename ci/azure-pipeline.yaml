@@ -1,3 +1,5 @@
+name: $(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
   branches:
     include:
@@ -83,7 +85,6 @@ stages:
 - stage: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'],'refs/tags/'))
   dependsOn: Test
-  name: $(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
   pool:
     vmImage: $(vmImage)
   jobs:
