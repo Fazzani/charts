@@ -97,4 +97,23 @@ entries:
     urls:
     - https://fazzani.synker.ovh/charts/traefik-0.1.6.tgz
     version: 0.1.6
-generated: "2020-01-16T22:58:31.551529774Z"
+  - apiVersion: v1
+    appVersion: 2.1.2
+    created: "2020-01-16T22:58:36.088238186Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: d8a2aa941d26b01ef3cd1165b40167a4f6eb6b6735d9d966a787457255a6b378
+    home: https://traefik.io/
+    icon: https://containo.us/assets/img/traefik-logo-black.svg?v=d46e82a20d
+    keywords:
+    - traefik
+    - ingress
+    maintainers:
+    - email: heni.fazzani@gmail.com
+      name: Fazzani
+    name: traefik
+    sources:
+    - https://github.com/Fazzani/charts/tree/master/charts/traefik2
+    urls:
+    - https://fazzani.synker.ovh/charts/traefik-0.1.4-n009.hff60587.tgz
+    version: 0.1.4-n009.hff60587
+generated: "2020-01-16T22:58:36.087138082Z"
