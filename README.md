@@ -11,8 +11,3 @@
 ```bash
 ./ci/bumpversion.sh 0.1.6
 ```
-
-## docs
-
-- [OpenVPN_Access_Server_Sysadmin_Guide_Rev](https://openvpn.net/images/pdf/OpenVPN_Access_Server_Sysadmin_Guide_Rev.pdf)
-- [Docker image repo](https://github.com/linuxserver/docker-openvpn-as)
