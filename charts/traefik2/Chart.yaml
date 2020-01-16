@@ -13,4 +13,4 @@ maintainers:
   - name: Fazzani
     email: heni.fazzani@gmail.com
 engine: gotpl
-icon: http://traefik.io/traefik.logo.png
+icon: https://containo.us/assets/img/traefik-logo-black.svg?v=d46e82a20d
