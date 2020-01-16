@@ -40,6 +40,25 @@ entries:
     - http://fazzani.synker.ovh/openvpn/openvpn-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v2
+    appVersion: 2.7.5-ls18
+    created: "2020-01-16T22:58:31.552374277Z"
+    description: A openvpn Helm chart for Kubernetes
+    digest: 16ad957a375d43ea9f6621543bf56f686ad7b558d95381912b7c582ec70f20cb
+    icon: https://images-eu.ssl-images-amazon.com/images/I/41CRKpBzyBL.png
+    keywords:
+    - openvpn
+    - vpn
+    maintainers:
+    - email: heni.fazzani@gmail.com
+      name: Fazzani
+    name: openvpn
+    sources:
+    - https://github.com/Fazzani/charts/tree/master/charts/openvpn
+    type: application
+    urls:
+    - https://fazzani.synker.ovh/charts/openvpn-0.1.4-n011.hf447edf.tgz
+    version: 0.1.4-n011.hf447edf
+  - apiVersion: v2
     appVersion: 2.7.5
     created: "2020-01-01T18:38:23.161654+01:00"
     description: A openvpn Helm chart for Kubernetes
@@ -78,4 +97,4 @@ entries:
     urls:
     - https://fazzani.synker.ovh/charts/traefik-0.1.6.tgz
     version: 0.1.6
-generated: "2020-01-16T22:44:22.734090143Z"
+generated: "2020-01-16T22:58:31.551529774Z"
