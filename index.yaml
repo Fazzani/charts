@@ -61,25 +61,21 @@ entries:
   traefik:
   - apiVersion: v1
     appVersion: 2.1.2
-    created: "2020-01-16T22:25:29.340821558Z"
+    created: "2020-01-16T22:31:15.875930354Z"
     description: A Traefik based Kubernetes ingress controller
-    digest: 23d2ff4e76fbdf72abb0526c895220e96a8f811129c6a835c512a50bf1db4b4f
+    digest: 85cfbdf67fef21529ae4b53430b09a6a2a06c3bc5207d9db286ec46f2bb30893
     home: https://traefik.io/
     icon: http://traefik.io/traefik.logo.png
     keywords:
     - traefik
     - ingress
     maintainers:
-    - email: emile@vauge.com
-      name: emilevauge
-    - email: daniel.tomcej@gmail.com
-      name: dtomcej
-    - email: ludovic@containo.us
-      name: ldez
+    - email: heni.fazzani@gmail.com
+      name: Fazzani
     name: traefik
     sources:
-    - https://github.com/containous/traefik
+    - https://github.com/Fazzani/charts/tree/master/charts/traefik2
     urls:
     - https://fazzani.synker.ovh/charts/traefik-0.1.6.tgz
     version: 0.1.6
-generated: "2020-01-16T22:31:11.25267639Z"
+generated: "2020-01-16T22:31:15.874944943Z"
